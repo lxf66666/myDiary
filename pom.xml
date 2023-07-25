@@ -1,0 +1,183 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.lxf</groupId>
+  <artifactId>MyYunDiary</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>MyYunDiary Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--    <maven.compiler.source>1.8</maven.compiler.source>-->
+<!--    <maven.compiler.target>1.8</maven.compiler.target>-->
+  </properties>
+
+  <dependencies>
+    <!--junit  单元测试-->
+<!--    <dependency>-->
+<!--      <groupId>junit</groupId>-->
+<!--      <artifactId>junit</artifactId>-->
+<!--      <version>3.8.1</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
+    <!--web servlet -->
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--slfj  日志打印相关的jar -->
+<!--    <dependency>-->
+<!--      <groupId>org.slf4j</groupId>-->
+<!--      <artifactId>jcl-over-slf4j</artifactId>-->
+<!--      <version>1.7.2</version>-->
+<!--    </dependency>-->
+
+    <!--mysql 驱动包  -->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <!--json 依赖-->
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20230227</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>2.0.23</version>
+    </dependency>
+
+
+
+    <!--hutool  工具集 -->
+    <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.8.18</version>
+    </dependency>
+
+    <!--commons-io  依赖 -->
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+
+    <!--添加百度编辑器ueditor支持  -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+
+    <!--jstl依赖 -->
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!--lombok插件  -->
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--junit 测试依赖包-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--log4j 日志打印的依赖包-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>MyYunDiary</finalName>
+
+
+    <!--编译环境插件  maven-compile-plugin -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <!--tomcat插件-->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <port>8080</port>
+          <path>/my</path>
+          <server>tomcat7</server>
+        </configuration>
+      </plugin>
+<!--      <plugin>-->
+<!--          <groupId>org.mortbay.jetty</groupId>-->
+<!--          <artifactId>maven-jetty-plugin</artifactId>-->
+<!--          <version>6.1.25</version>-->
+
+<!--        <configuration>-->
+<!--          &lt;!&ndash; 热部署，每10秒扫描一次 &ndash;&gt;-->
+<!--          <scanIntervalSeconds>10</scanIntervalSeconds>-->
+<!--          &lt;!&ndash; 可指定当前项目的站点名 &ndash;&gt;-->
+<!--          <contextPath>/test</contextPath>-->
+<!--         <connectors>-->
+<!--          <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">-->
+<!--          <port>9090</port>-->
+<!--            &lt;!&ndash; 设置启动的端口号 &ndash;&gt;-->
+<!--         </connector>-->
+<!--          </connectors>-->
+<!--          </configuration>-->
+<!--      </plugin>-->
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.0</version>
+      </plugin>
+
+    </plugins>
+
+
+
+
+  </build>
+</project>
